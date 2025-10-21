@@ -15,7 +15,10 @@ public interface PurchaseRequestDtoMapper {
 
     default PurchaseRequestDtos toPurchaseRequestDtos(List<DomainPurchaseRequest> domainPurchaseRequest){
         return PurchaseRequestDtos.builder()
-                .purchaseRequestDtos(domainPurchaseRequest.stream().map(this::toPurchaseRequestDto).toList())
+                .purchaseRequestDtos(
+                        domainPurchaseRequest.stream()
+                        .map(this::toPurchaseRequestDto)
+                        .toList())
                 .build();
     }
 }

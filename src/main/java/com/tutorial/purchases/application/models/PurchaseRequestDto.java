@@ -3,8 +3,13 @@ package com.tutorial.purchases.application.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class PurchaseRequestDto {
+    @JsonProperty("id")
+    private String id;
+
     @JsonProperty("product")
     private String product;
 
@@ -14,5 +19,7 @@ public class PurchaseRequestDto {
     @JsonProperty("quantity")
     private int quantity;
 
+    @JsonProperty("price")
+    private BigDecimal price;
 }
 

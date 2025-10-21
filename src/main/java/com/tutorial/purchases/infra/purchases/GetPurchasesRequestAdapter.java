@@ -20,7 +20,7 @@ public class GetPurchasesRequestAdapter implements GetPurchasesRequestPort {
     private final PurchaseResponseMapper purchaseResponseMapper;
 
     @Override
-    public List<DomainPurchaseRequest> storePurchaseRequest() {
+    public List<DomainPurchaseRequest> getPurchaseRequests() {
 
         final var allEntities = purchaseRequestRepository.getAll();
 
