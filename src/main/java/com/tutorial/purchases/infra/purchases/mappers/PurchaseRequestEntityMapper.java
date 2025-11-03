@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PurchaseRequestEntityMapper {
-    PurchaseRequestEntity mapToEntity(DomainPurchaseRequest domainPurchaseRequest);
-    DomainPurchaseRequest mapToDomainPurchaseRequest(PurchaseRequestEntity entity);
+  PurchaseRequestEntity mapToEntity(DomainPurchaseRequest domainPurchaseRequest);
+
+  DomainPurchaseRequest mapToDomainPurchaseRequest(PurchaseRequestEntity entity);
 }

@@ -5,5 +5,5 @@ import com.tutorial.purchases.domain.models.DomainPurchaseResponse;
 
 @FunctionalInterface
 public interface CreatePurchaseRequestPort {
-    DomainPurchaseResponse createPurchaseRequest(DomainPurchaseRequest domainPurchaseRequest);
+  DomainPurchaseResponse createPurchaseRequest(DomainPurchaseRequest domainPurchaseRequest);
 }

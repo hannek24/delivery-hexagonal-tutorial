@@ -6,5 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PurchaseResponseMapper {
-    DomainPurchaseResponse mapToDomainPurchaseResponse(PurchaseRequestEntity savedEntity);
+  DomainPurchaseResponse mapToDomainPurchaseResponse(PurchaseRequestEntity savedEntity);
 }
