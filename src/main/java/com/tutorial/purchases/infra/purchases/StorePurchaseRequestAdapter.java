@@ -14,21 +14,21 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class StorePurchaseRequestAdapter implements StorePurchaseRequestPort {
 
-    private final PurchaseRequestRepository purchaseRequestRepository;
-    private final PurchaseRequestEntityMapper purchaseRequestMapper;
-    private final PurchaseResponseMapper purchaseResponseMapper;
+  private final PurchaseRequestRepository purchaseRequestRepository;
+  private final PurchaseRequestEntityMapper purchaseRequestMapper;
+  private final PurchaseResponseMapper purchaseResponseMapper;
 
-    @Override
-    public DomainPurchaseResponse storePurchaseRequest(final DomainPurchaseRequest domainPurchaseRequest) {
-        log.info("Persisting purchase request for domainPurchaseRequest: {}", domainPurchaseRequest);
-        final var entity = purchaseRequestMapper.mapToEntity(domainPurchaseRequest);
+  @Override
+  public DomainPurchaseResponse storePurchaseRequest(
+      final DomainPurchaseRequest domainPurchaseRequest) {
+    log.info("Persisting purchase request for domainPurchaseRequest: {}", domainPurchaseRequest);
+    final var entity = purchaseRequestMapper.mapToEntity(domainPurchaseRequest);
 
-        // Saving the Purchase request:
-        final var savedEntity = purchaseRequestRepository.savePurchaseRequest(entity);
+    // Saving the Purchase request:
+    final var savedEntity = purchaseRequestRepository.savePurchaseRequest(entity);
 
-        final var response = purchaseResponseMapper.mapToDomainPurchaseResponse(savedEntity);
-        log.info("Returning purchase response: {}", response);
-        return response;
-    }
+    final var response = purchaseResponseMapper.mapToDomainPurchaseResponse(savedEntity);
+    log.info("Returning purchase response: {}", response);
+    return response;
+  }
 }
-

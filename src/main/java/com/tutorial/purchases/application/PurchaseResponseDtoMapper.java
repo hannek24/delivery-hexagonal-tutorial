@@ -6,5 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PurchaseResponseDtoMapper {
-    PurchaseResponseDto mapToResponse(DomainPurchaseResponse purchaseResponse);
+  PurchaseResponseDto mapToResponse(DomainPurchaseResponse purchaseResponse);
 }

@@ -1,13 +1,12 @@
 package com.tutorial.purchases.domain.models;
 
+import java.math.BigDecimal;
 import lombok.Builder;
 import lombok.Data;
-
-import java.math.BigDecimal;
 
 @Data
 @Builder
 public class DomainPurchaseResponse {
-    private String id;
-    private BigDecimal price;
+  private String id;
+  private BigDecimal price;
 }

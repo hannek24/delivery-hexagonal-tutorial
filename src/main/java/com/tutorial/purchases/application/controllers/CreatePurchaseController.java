@@ -17,19 +17,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CreatePurchaseController {
 
-    private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
-    private final CreatePurchaseRequestPort createPurchaseRequestPort;
-    private final PurchaseResponseDtoMapper purchaseResponseDtoMapper;
+  private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
+  private final CreatePurchaseRequestPort createPurchaseRequestPort;
+  private final PurchaseResponseDtoMapper purchaseResponseDtoMapper;
 
-    @PostMapping("/purchase-requests")
-    public final ResponseEntity<PurchaseResponseDto> createPurchaseRequest(@RequestBody PurchaseRequestDto purchaseRequestDto) {
-        log.info("Purchase request received: {}", purchaseRequestDto);
-        final var domainRequest = purchaseRequestDtoMapper.toDomainPurchaseRequest(purchaseRequestDto);
+  @PostMapping("/purchase-requests")
+  public final ResponseEntity<PurchaseResponseDto> createPurchaseRequest(
+      @RequestBody PurchaseRequestDto purchaseRequestDto) {
+    log.info("Purchase request received: {}", purchaseRequestDto);
+    final var domainRequest = purchaseRequestDtoMapper.toDomainPurchaseRequest(purchaseRequestDto);
 
-        // Create the Purchase request
-        final var purchaseResponse = createPurchaseRequestPort.createPurchaseRequest(domainRequest);
+    // Create the Purchase request
+    final var purchaseResponse = createPurchaseRequestPort.createPurchaseRequest(domainRequest);
 
-        final var response = purchaseResponseDtoMapper.mapToResponse(purchaseResponse);
-        return ResponseEntity.ok(response);
-    }
+    final var response = purchaseResponseDtoMapper.mapToResponse(purchaseResponse);
+    return ResponseEntity.ok(response);
+  }
 }

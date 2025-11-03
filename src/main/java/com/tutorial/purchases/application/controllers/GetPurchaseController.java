@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class GetPurchaseController {
 
-    private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
-    private final CreatePurchaseRequestPort createPurchaseRequestPort;
-    private final GetPurchasesRequestPort getPurchasesRequestPort;
+  private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
+  private final CreatePurchaseRequestPort createPurchaseRequestPort;
+  private final GetPurchasesRequestPort getPurchasesRequestPort;
 
-    @GetMapping("/purchases")
-    public final ResponseEntity<PurchaseRequestDtos> getPurchasesRequest() {
-        log.info("getPurchasesRequest called");
+  @GetMapping("/purchases")
+  public final ResponseEntity<PurchaseRequestDtos> getPurchasesRequest() {
+    log.info("getPurchasesRequest called");
 
-        final var domainPurchaseRequests = getPurchasesRequestPort.getPurchases();
+    final var domainPurchaseRequests = getPurchasesRequestPort.getPurchases();
 
-        return ResponseEntity.ok(
-                purchaseRequestDtoMapper.toPurchaseRequestDtos(domainPurchaseRequests));
-    }
+    return ResponseEntity.ok(
+        purchaseRequestDtoMapper.toPurchaseRequestDtos(domainPurchaseRequests));
+  }
 }
