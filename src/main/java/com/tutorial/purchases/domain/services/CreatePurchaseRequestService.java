@@ -32,7 +32,7 @@ public class CreatePurchaseRequestService implements CreatePurchaseRequestPort {
     // Store the Purchase request
     final DomainPurchaseResponse domainPurchaseResponse =
         storePurchaseRequestPort.storePurchaseRequest(domainPurchaseRequest);
-
+    log.info("Stored purchase request, response: {}", domainPurchaseResponse);
     return domainPurchaseResponse;
   }
 }

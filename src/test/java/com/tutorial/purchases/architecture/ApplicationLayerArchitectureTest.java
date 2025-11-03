@@ -9,7 +9,7 @@ import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.Test;
 
-public class ApplicationLayerArchitectureTest {
+class ApplicationLayerArchitectureTest {
 
   private final JavaClasses classes =
       new ClassFileImporter()
