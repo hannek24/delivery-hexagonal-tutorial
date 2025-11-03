@@ -10,5 +10,5 @@ import lombok.Data;
 public class PurchaseRequestDtos {
 
   @JsonProperty("purchases")
-  private List<PurchaseRequestDto> purchaseRequestDtos;
+  private List<PurchaseRequestDto> purchaseRequestDtoList;
 }
