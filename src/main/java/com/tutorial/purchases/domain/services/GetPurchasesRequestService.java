@@ -2,6 +2,7 @@ package com.tutorial.purchases.domain.services;
 
 import com.tutorial.purchases.domain.models.DomainPurchaseRequest;
 import com.tutorial.purchases.domain.ports.incoming.GetPurchasesRequestPort;
+import com.tutorial.purchases.domain.ports.outgoing.RetrievePurchasesRequestPort;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,15 +13,14 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class GetPurchasesRequestService implements GetPurchasesRequestPort {
 
-  private final com.tutorial.purchases.domain.ports.outgoing.GetPurchasesRequestPort
-      getPurchasesRequestPort;
+  private final RetrievePurchasesRequestPort retrievePurchasesRequestPort;
 
   @Override
   public List<DomainPurchaseRequest> getPurchases() {
 
     // Store the Purchase request
     final List<DomainPurchaseRequest> domainPurchaseRequests =
-        getPurchasesRequestPort.getPurchaseRequests();
+        retrievePurchasesRequestPort.retrievePurchaseRequests();
 
     log.info("Retrieved purchase requests: {}", domainPurchaseRequests);
 
