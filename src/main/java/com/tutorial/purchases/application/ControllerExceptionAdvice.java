@@ -18,7 +18,7 @@ public class ControllerExceptionAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({WrongPurchaseRequestException.class})
     @ResponseStatus(BAD_REQUEST)
-    public Map<String, String> handleWrongTelevisionException(
+    public Map<String, String> handleWrongPurchaseRequestException(
             final RuntimeException ex, final ServletWebRequest request) {
 
         log.error("Handling domain validation exception for request {}: {}", request.getRequest().getRequestURI(), ex.getMessage());

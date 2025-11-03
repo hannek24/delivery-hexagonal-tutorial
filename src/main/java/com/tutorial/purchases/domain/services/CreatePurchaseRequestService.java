@@ -5,7 +5,6 @@ import com.tutorial.purchases.domain.models.DomainPurchaseResponse;
 import com.tutorial.purchases.domain.ports.incoming.CreatePurchaseRequestPort;
 import com.tutorial.purchases.domain.ports.outgoing.StorePurchaseRequestPort;
 import com.tutorial.purchases.domain.validators.PurchaseRequestValidator;
-import com.tutorial.purchases.infra.purchases.mappers.PurchaseResponseMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,6 @@ public class CreatePurchaseRequestService implements CreatePurchaseRequestPort {
     private final PurchaseRequestValidator purchaseRequestValidator;
     private final StorePurchaseRequestPort storePurchaseRequestPort;
     private final DomainPriceCalculator domainPriceCalculator;
-    private final PurchaseResponseMapper purchaseResponseMapper;
 
     @Override
     public DomainPurchaseResponse createPurchaseRequest(final DomainPurchaseRequest domainPurchaseRequest) {
