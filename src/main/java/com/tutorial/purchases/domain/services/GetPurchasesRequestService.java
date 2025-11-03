@@ -19,8 +19,10 @@ public class GetPurchasesRequestService implements GetPurchasesRequestPort {
   public List<DomainPurchaseRequest> getPurchases() {
 
     // Store the Purchase request
-    List<DomainPurchaseRequest> domainPurchaseRequests =
+    final List<DomainPurchaseRequest> domainPurchaseRequests =
         getPurchasesRequestPort.getPurchaseRequests();
+
+    log.info("Retrieved purchase requests: {}", domainPurchaseRequests);
 
     return domainPurchaseRequests;
   }

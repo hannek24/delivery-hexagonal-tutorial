@@ -2,7 +2,6 @@ package com.tutorial.purchases.application.controllers;
 
 import com.tutorial.purchases.application.PurchaseRequestDtoMapper;
 import com.tutorial.purchases.application.models.PurchaseRequestDtos;
-import com.tutorial.purchases.domain.ports.incoming.CreatePurchaseRequestPort;
 import com.tutorial.purchases.domain.ports.incoming.GetPurchasesRequestPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class GetPurchaseController {
 
   private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
-  private final CreatePurchaseRequestPort createPurchaseRequestPort;
   private final GetPurchasesRequestPort getPurchasesRequestPort;
 
   @GetMapping("/purchases")
