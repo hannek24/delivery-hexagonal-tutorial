@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class GetPurchaseController {
 
   private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
-  private final CreatePurchaseRequestPort createPurchaseRequestPort;
   private final GetPurchasesRequestPort getPurchasesRequestPort;
 
   @GetMapping("/purchases")
