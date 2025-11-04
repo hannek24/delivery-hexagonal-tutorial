@@ -1,10 +1,10 @@
 package com.tutorial.purchases.infra.purchases;
 
 import com.tutorial.purchases.domain.models.DomainPurchaseRequest;
-import com.tutorial.purchases.domain.models.DomainPurchaseResponse;
 import com.tutorial.purchases.domain.ports.outgoing.StorePurchaseRequestPort;
 import com.tutorial.purchases.infra.purchases.mappers.PurchaseRequestEntityMapper;
 import com.tutorial.purchases.infra.purchases.mappers.PurchaseResponseMapper;
+import com.tutorial.purchases.infra.purchases.models.PurchaseRequestEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class StorePurchaseRequestAdapter implements StorePurchaseRequestPort {
   private final PurchaseResponseMapper purchaseResponseMapper;
 
   @Override
-  public DomainPurchaseResponse storePurchaseRequest(
+  public PurchaseRequestEntity storePurchaseRequest(
       final DomainPurchaseRequest domainPurchaseRequest) {
     log.info("Persisting purchase request for domainPurchaseRequest: {}", domainPurchaseRequest);
     final var entity = purchaseRequestMapper.mapToEntity(domainPurchaseRequest);
@@ -27,8 +27,8 @@ public class StorePurchaseRequestAdapter implements StorePurchaseRequestPort {
     // Saving the Purchase request:
     final var savedEntity = purchaseRequestRepository.savePurchaseRequest(entity);
 
-    final var response = purchaseResponseMapper.mapToDomainPurchaseResponse(savedEntity);
-    log.info("Returning purchase response: {}", response);
-    return response;
+//    final var response = purchaseResponseMapper.mapToDomainPurchaseResponse(savedEntity);
+    log.info("Returning purchase response: {}", savedEntity);
+    return savedEntity;
   }
 }
