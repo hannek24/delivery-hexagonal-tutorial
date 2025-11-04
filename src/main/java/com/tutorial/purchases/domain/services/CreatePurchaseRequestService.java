@@ -22,6 +22,8 @@ public class CreatePurchaseRequestService implements CreatePurchaseRequestPort {
   @Override
   public DomainPurchaseResponse createPurchaseRequest(
       final DomainPurchaseRequest domainPurchaseRequest) {
+
+    // validate the request
     purchaseRequestValidator.validate(domainPurchaseRequest);
 
     // calculate price in domain

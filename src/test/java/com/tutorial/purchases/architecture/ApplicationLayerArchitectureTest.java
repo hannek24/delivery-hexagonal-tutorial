@@ -45,11 +45,13 @@ class ApplicationLayerArchitectureTest {
   @Test
   void application_should_only_depend_on_allowed_packages() {
 
-    // except for ControllerExceptionAdvice.class
+    // except for ControllerExceptionAdvice.class and test classes
     ArchRule rule =
         classes()
             .that()
-            .haveNameNotMatching(".*ExceptionAdvice*.")
+            .haveNameNotMatching(".*ExceptionAdvice.*")
+            .and()
+            .haveNameNotMatching(".*Test.*") // <-- ignore test classes in this rule
             .and()
             .resideInAPackage("..application..")
             .should()

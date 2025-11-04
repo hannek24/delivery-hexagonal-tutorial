@@ -30,6 +30,7 @@
         <spring.boot.version>3.1.5</spring.boot.version>
         <archunit.version>1.4.1</archunit.version>
         <spotify.fmt.version>2.29</spotify.fmt.version>
+        <instancio.version>5.5.1</instancio.version>
     </properties>
 
     <dependencies>
@@ -73,6 +74,13 @@
             <groupId>com.tngtech.archunit</groupId>
             <artifactId>archunit-junit5</artifactId>
             <version>${archunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.instancio/instancio-junit -->
+        <dependency>
+            <groupId>org.instancio</groupId>
+            <artifactId>instancio-junit</artifactId>
+            <version>${instancio.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
