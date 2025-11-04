@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-class PurchaseRequestRepository {
+public class PurchaseRequestRepository {
 
   private final List<PurchaseRequestEntity> purchaseRequestEntityList = new ArrayList<>();
 

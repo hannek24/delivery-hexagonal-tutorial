@@ -1,10 +1,8 @@
 package com.tutorial.purchases.application.controllers;
 
-import com.tutorial.purchases.application.PurchaseRequestDtoMapper;
-import com.tutorial.purchases.application.PurchaseResponseDtoMapper;
 import com.tutorial.purchases.application.models.PurchaseRequestDto;
-import com.tutorial.purchases.application.models.PurchaseResponseDto;
-import com.tutorial.purchases.domain.services.CreatePurchaseRequestService;
+import com.tutorial.purchases.infra.purchases.models.PurchaseRequestEntity;
+import com.tutorial.purchases.services.CreatePurchaseRequestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CreatePurchaseController {
 
-  private final PurchaseRequestDtoMapper purchaseRequestDtoMapper;
   private final CreatePurchaseRequestService createPurchaseRequestService;
-  private final PurchaseResponseDtoMapper purchaseResponseDtoMapper;
 
   @PostMapping("/purchase-requests")
-  public final ResponseEntity<PurchaseResponseDto> createPurchaseRequest(
+  public final ResponseEntity<PurchaseRequestEntity> createPurchaseRequest(
       @RequestBody PurchaseRequestDto purchaseRequestDto) {
     log.info("Purchase request received: {}", purchaseRequestDto);
-    final var domainRequest = purchaseRequestDtoMapper.toDomainPurchaseRequest(purchaseRequestDto);
 
     // Create the Purchase request
-    final var purchaseResponse = createPurchaseRequestService.createPurchaseRequest(domainRequest);
-
-    final var response = purchaseResponseDtoMapper.mapToResponse(purchaseResponse);
-    return ResponseEntity.ok(response);
+    return createPurchaseRequestService.createPurchaseRequest(purchaseRequestDto);
   }
 }
