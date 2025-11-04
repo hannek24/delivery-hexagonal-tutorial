@@ -18,6 +18,9 @@ public class GetPurchasesRequestService {
 
   public List<DomainPurchaseRequest> getPurchases() {
 
+    /*
+     * HINT: Leak of infra model database entity. Hard to see.
+     */
     final var purchaseRequests = retrievePurchasesRequestAdapter.retrievePurchaseRequests();
 
     // Store the Purchase request

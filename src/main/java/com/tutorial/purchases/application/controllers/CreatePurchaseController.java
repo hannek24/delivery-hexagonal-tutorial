@@ -28,6 +28,9 @@ public class CreatePurchaseController {
     final var domainRequest = purchaseRequestDtoMapper.toDomainPurchaseRequest(purchaseRequestDto);
 
     // Create the Purchase request
+    /*
+     *  HINT: Direct dependency to the service layer
+     */
     final var purchaseResponse = createPurchaseRequestService.createPurchaseRequest(domainRequest);
 
     final var response = purchaseResponseDtoMapper.mapToResponse(purchaseResponse);

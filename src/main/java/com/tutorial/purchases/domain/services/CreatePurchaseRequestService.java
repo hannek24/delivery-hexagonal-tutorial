@@ -26,6 +26,9 @@ public class CreatePurchaseRequestService {
     purchaseRequestValidator.validate(domainPurchaseRequest);
 
     // calculate price in domain
+    /*
+     * HINT: Calculating price done by separate domain service
+     */
     final BigDecimal calculatedPrice = domainPriceCalculator.calculatePrice(domainPurchaseRequest);
     domainPurchaseRequest.setPrice(calculatedPrice);
     log.info("Handling purchase request (with price): {}", domainPurchaseRequest);
@@ -33,6 +36,9 @@ public class CreatePurchaseRequestService {
     final PurchaseRequestEntity entity =
         storePurchaseRequestAdapter.storePurchaseRequest(domainPurchaseRequest);
 
+    /*
+     * HINT: Mapping to domain response after storing the entity
+     */
     final var domainPurchaseResponse = purchaseResponseMapper.mapToDomainPurchaseResponse(entity);
 
     log.info("Stored purchase request, response: {}", domainPurchaseResponse);
