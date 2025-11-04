@@ -1,10 +1,12 @@
-package com.tutorial.purchases.application.models;
+package com.tutorial.purchases.application.controllers.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class PurchaseRequestDto {
   @JsonProperty("id")
   private String id;

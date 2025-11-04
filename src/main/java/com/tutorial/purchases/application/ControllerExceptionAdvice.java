@@ -2,7 +2,7 @@ package com.tutorial.purchases.application;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
-import com.tutorial.purchases.domain.exceptions.WrongPurchaseRequestException;
+import com.tutorial.purchases.application.controllers.WrongPurchaseRequestException;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;

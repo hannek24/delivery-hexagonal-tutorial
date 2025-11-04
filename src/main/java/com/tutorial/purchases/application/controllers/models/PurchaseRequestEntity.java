@@ -1,4 +1,4 @@
-package com.tutorial.purchases.infra.purchases.models;
+package com.tutorial.purchases.application.controllers.models;
 
 import java.math.BigDecimal;
 import lombok.Builder;

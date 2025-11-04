@@ -1,4 +1,4 @@
-package com.tutorial.purchases.domain.exceptions;
+package com.tutorial.purchases.application.controllers;
 
 import java.io.Serial;
 
