@@ -26,6 +26,9 @@ public class CreatePurchaseRequestService {
   private static final BigDecimal DEFAULT_UNIT_PRICE = new BigDecimal("99.99");
   private final PurchaseRequestRepository purchaseRequestRepository;
 
+  /*
+   * HINT: returning Controller http Entity, domain should not know about that
+   */
   public ResponseEntity<PurchaseRequestEntity> createPurchaseRequest(
       final PurchaseRequestDto purchaseRequestDto) {
     validate(purchaseRequestDto);
@@ -43,6 +46,9 @@ public class CreatePurchaseRequestService {
             .build();
 
     // Saving the Purchase request:
+    /*
+     * HINT: Still direct dependency on repository
+     */
     final var savedEntity = purchaseRequestRepository.savePurchaseRequest(entity);
 
     log.info("Stored purchase request: {}", savedEntity);
